@@ -1,47 +1,71 @@
 <!doctype html>
 <html class="" lang="">
-    <head>
-        <meta charset="utf-8">
-        <title>Weather Forecast</title>
-        <link rel="stylesheet" href="css/main.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/main.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <h1 class="header1">Weather forecast</h1>
+<head>
+    <meta charset="utf-8">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<h1 class="header1">Weather forecast</h1>
 
-    <div>
-        <table>
-            <tr>
-                <td>Choose country: </td>
-                <td>
-                    <select name="country-list" id="countrylist">
-                        <option value="sk">Slovakia</option>
-                        <option value="cz">Czechia</option>
-                        <option value="pl">Poland</option>
-                        <option value="hu">Hungary</option>
-                    </select>
-                </td>
-                <td>Choose city: </td>
-                <td>
-                    <select name="city-list" id="citylist">
-                    </select>
-                </td>
-            </tr>
-        </table>
-    </div>
+<div>
+    <table>
+        <tr>
+            <td>Choose country: </td>
+            <td>
+                <select name="country-list" id="countrylist">
+                    <option value="sk">Slovakia</option>
+                    <option value="cz">Czechia</option>
+                    <option value="pl">Poland</option>
+                    <option value="hu">Hungary</option>
+                </select>
+            </td>
+            <td>Choose city: </td>
+            <td>
+                <select name="city-list" id="citylist">
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
 
-    <div id="result">
-        <table>
-            <tr>
-                <td>Current temperature: </td>
-                <td id="currTemp"></td>
-            </tr>
-        </table>
-    </div>
+<div id="result">
+    <table>
+        <tr>
+            <td>Current temperature: </td>
+            <td id="currTemp"></td>
+        </tr>
+        <tr>
+            <td>Current pressure:</td>
+            <td id="currPressure"></td>
+        </tr>
+        <tr>
+            <td>Current humidity:</td>
+            <td id="currHumidity"></td>
+        </tr>
+        <tr>
+            <td>Current minimal temperature: </td>
+            <td id="currMin"></td>
+        </tr>
+        <tr>
+            <td>Current maximal temperature: </td>
+            <td id="currMax"></td>
+        </tr>
+        <tr>
+            <td>Current rainfall: </td>
+            <td id="currRain"></td>
+        </tr>
+        <tr>
+            <td>Wind speed: </td>
+            <td id="currWind"></td>
+        </tr>
+    </table>
+</div>
 
-    </body>
+</body>
 </html>

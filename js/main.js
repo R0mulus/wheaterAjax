@@ -4,11 +4,23 @@ $(document).ready(function(){
     var selectCityText;
     var citylist = $('#citylist');
     var appid = '13fb217fb6762e2f72225bc15b0e0947';
-    var currWeather = $('#currTemp');
+    var currTemp = $('#currTemp');
+    var currPressure = $('#currPressure');
+    var currHumidity = $('#currHumidity');
+    var currMin = $('#currMin');
+    var currMax = $('#currMax');
+    var currRain = $('#currRain');
+    var currWind = $('#currWind');
 
     $('#countrylist').on('click', function(){
         selectCountry = $('#countrylist option:selected').val();
-        currWeather.text("");
+        currTemp.text("");
+        currPressure.text("");
+        currHumidity.text("");
+        currMin.text("");
+        currMax.text("");
+        currRain.text("");
+        currWind.text("");
 
         var clicks = $(this).data('clicks');
         if (clicks) {
@@ -76,6 +88,14 @@ $(document).ready(function(){
             dataType: 'json',
             success: function (weatherInfo) {
                 printCurrWeather(weatherInfo.list[0].main.temp);
+                printCurrPressure(weatherInfo.list[0].main.pressure);
+                printCurrHumidity(weatherInfo.list[0].main.humidity);
+                printMinTemp(weatherInfo.list[0].main.temp_min);
+                printMaxTemp(weatherInfo.list[0].main.temp_max);
+
+                printRain(weatherInfo.list[0].weather[0].description);
+
+                printWindSpeed(weatherInfo.list[0].wind.speed);
                 //console.log(weatherInfo.list[0].main.temp);
                 //return weatherInfo;
             },
@@ -87,9 +107,34 @@ $(document).ready(function(){
 
     var printCurrWeather = function (temp){
         var trimmed = (Math.round(temp * 100)/100) - 273.15;
-        currWeather.text(trimmed.toFixed(2) + "°C");
+        currTemp.text(trimmed.toFixed(2) + "°C");
     };
 
+    var printCurrHumidity = function (hum){
+        currHumidity.text(hum + " %");
+    };
+
+    var printCurrPressure = function (pressure){
+        currPressure.text(pressure + " hpa");
+    };
+
+    var printMinTemp = function (mintemp){
+        var trimmed = (Math.round(mintemp * 100)/100) - 273.15;
+        currMin.text(trimmed.toFixed(2) + "°C");
+    };
+
+    var printMaxTemp = function (maxtemp){
+        var trimmed = (Math.round(maxtemp * 100)/100) - 273.15;
+        currMax.text(trimmed.toFixed(2) + "°C");
+    };
+
+    var printRain = function (rain){
+        currRain.text("" + rain);
+    };
+
+    var printWindSpeed = function (wind){
+        currWind.text(wind + " km/h");
+    };
 
 
 });
